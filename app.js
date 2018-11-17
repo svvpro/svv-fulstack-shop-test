@@ -16,7 +16,6 @@ const orderRouter = require('./routes/order');
 mongoose.connect(keys.mongoUrl,  { useNewUrlParser: true, useCreateIndex: true } )
     .then(()=> console.log('MongoDB connected...'))
     .catch((error) => console.warn(error));
-// mongoose.set('useCreateIndex', true);
 
 app.use('/uploads', express.static('uploads'));
 
