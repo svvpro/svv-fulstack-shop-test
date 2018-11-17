@@ -1,0 +1,36 @@
+<h4>
+  Register page
+</h4>
+
+<div class="row">
+  <form class="col s4 offset-l4 card" [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="email" class="validate" formControlName="email">
+        <label for="email">Email</label>
+        <span *ngIf="form.get('email').touched && form.get('email').invalid">
+          <span *ngIf="form.get('email').errors['required']">Field is required</span>
+          <span *ngIf="form.get('email').errors['email']">Invalid field format</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="password" class="validate" formControlName="password">
+        <label for="password">Password</label>
+        <span *ngIf="form.get('password').touched && form.get('password').invalid">
+          <span *ngIf="form.get('password').errors['required']">Field is required</span>
+          <span *ngIf="form.get('password').errors['minlength']">Minimum length 3 characters</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <button class="btn wide-button" [disabled]="form.invalid || form.disabled">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

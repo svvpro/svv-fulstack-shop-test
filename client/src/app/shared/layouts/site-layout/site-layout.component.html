@@ -1,0 +1,12 @@
+
+<div class="row">
+  <div class="col s2">
+    <div class="collection">
+      <a class="collection-item" routerLink="/overview" routerLinkActive="active">Overview</a>
+      <a class="collection-item" style="cursor: pointer" (click)="logout()">Log out</a>
+    </div>
+  </div>
+  <div class="col s10">
+    <router-outlet></router-outlet>
+  </div>
+</div>
