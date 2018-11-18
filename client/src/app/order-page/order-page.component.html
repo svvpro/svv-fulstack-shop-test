@@ -1,0 +1,43 @@
+<h4 *ngIf="isRoot">
+  Order categories
+</h4>
+<h4 *ngIf="!isRoot">
+  <a routerLink="/order">Order categories></a> Category positions
+</h4>
+
+<button class="btn" (click)="basketOpen()" [disabled]="orderService.list.length === 0">Basket</button>
+
+<router-outlet></router-outlet>
+
+<!-- Modal Structure -->
+<div #modalForm class="modal">
+  <div class="modal-content">
+    <table *ngIf=" orderService.list">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of orderService.list">
+        <td>{{item.name}}</td>
+        <td>{{item.cost}} UAH</td>
+        <td>{{item.quantity}}</td>
+        <td>
+          <button class="btn red" (click)="removeFromCard(item)">Remove</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col s12"><strong>Total price: </strong>{{orderService.price}} UAH</div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" style="margin-right: 10px" (click)="submitOrder()">Submit order</button>
+    <button class="btn" (click)="basketClose()">Close</button>
+  </div>
+</div>

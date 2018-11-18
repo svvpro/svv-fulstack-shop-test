@@ -1,0 +1,21 @@
+<div class="row" *ngIf="categories$ | async as categories; else preloader">
+  <div *ngIf="categories.length > 0; empty">
+
+    <div class="card col s3" *ngFor="let category of categories" [routerLink]="['/order', category._id]">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" [src]="category.imageSrc" height="200px">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{category.name}}</span>
+      </div>
+    </div>
+
+  </div>
+  <ng-template #empty>
+    <h5>Category list empty</h5>
+  </ng-template>
+</div>
+
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>

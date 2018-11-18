@@ -15,6 +15,9 @@ import { CategoryPageComponent } from './category-page/category-page.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 import { CategoryFormComponent } from './category-page/category-form/category-form.component';
 import {PositionFormComponent} from "./category-page/category-form/position-form/position-form.component";
+import { OrderPageComponent } from './order-page/order-page.component';
+import { OrderCategoriesComponent } from './order-page/order-categories/order-categories.component';
+import { OrderPositionsComponent } from './order-page/order-positions/order-positions.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import {PositionFormComponent} from "./category-page/category-form/position-form
     CategoryPageComponent,
     PreloaderComponent,
     CategoryFormComponent,
-    PositionFormComponent
+    PositionFormComponent,
+    OrderPageComponent,
+    OrderCategoriesComponent,
+    OrderPositionsComponent
   ],
   imports: [
     BrowserModule,
