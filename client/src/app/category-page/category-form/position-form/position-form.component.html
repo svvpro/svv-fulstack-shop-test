@@ -1,0 +1,65 @@
+<hr>
+<button class="btn" (click)="createPositionForm()">Create position</button>
+<div *ngIf="!loading; else preloader">
+  <table *ngIf="positions.length > 0; empty">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let position of positions" (click)="updatePositionForm(position)" class="pointer">
+      <td>{{position.name}}</td>
+      <td>{{position.cost}} UAH</td>
+      <td><button class="btn red" (click)="delete($event, position)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <ng-template #empty>
+    <h5>Position list empty</h5>
+  </ng-template>
+</div>
+
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>
+
+<!-- Modal Structure -->
+<div #modalForm class="modal">
+  <div class="modal-content">
+    <div class="row">
+      <form class="col s12" [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" class="validate" formControlName="name">
+            <label for="name">Name</label>
+            <span *ngIf="form.get('name').invalid && form.get('name').touched">
+            <span *ngIf="form.get('name').errors['required']">Field is required</span>
+          </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="number" class="validate" formControlName="cost">
+            <label for="cost">Cost</label>
+            <span *ngIf="form.get('cost').invalid && form.get('cost').touched">
+            <span *ngIf="form.get('cost').errors['required']">Field is required</span>
+          </span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+
+          <button class=" btn" type="submit" style="margin-right: 10px" [disabled]="form.invalid || form.disabled">Submit</button>
+          <button class="btn" type="button" (click)="closePositionForm()">Close</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

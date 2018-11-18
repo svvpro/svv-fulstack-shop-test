@@ -1,0 +1,47 @@
+<h4>
+  <a routerLink="/category">Categories</a> {{isNew ? '>Create' : '> Edit'}} category
+  <br>
+</h4>
+
+<button *ngIf="!isNew" class="btn red" (click)="delete()">Delete</button>
+
+<div class="row">
+
+
+  <div class="col s6">
+    <form class="col s12" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class="validate" formControlName="name">
+          <label for="name">Name</label>
+          <span *ngIf="form.get('name').invalid && form.get('name').touched">
+            <span *ngIf="form.get('name').errors['required']">Field is required</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="file" #formUpload style="display: none" (change)="uploadImage($event)">
+          <button class="btn orange" type="button" (click)="showUploadForm()">Upload image</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <button class="btn" type="submit" [disabled]="form.invalid || form.disabled">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col s6">
+    <img *ngIf="imagePreview" [src]="imagePreview" height="200px">
+  </div>
+
+</div>
+
+<div *ngIf="selectedCategory">
+  <app-position-form [categoryId]="selectedCategory._id"></app-position-form>
+</div>
+

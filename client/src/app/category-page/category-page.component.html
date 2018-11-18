@@ -1,0 +1,21 @@
+<h4>
+  Categories
+</h4>
+<a class="btn" routerLink="create">Create</a>
+
+<div class="row" *ngIf="categories$ | async as categories; else preloader">
+  <div class="col s12" *ngIf="categories.length > 0; else empty">
+    <div class="collection">
+      <a class="collection-item" *ngFor="let category of categories" [routerLink]="['/category', category._id]">{{category.name}}</a>
+    </div>
+  </div>
+  <ng-template #empty>
+    <h5>Category list empty</h5>
+  </ng-template>
+</div>
+
+
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>
+
