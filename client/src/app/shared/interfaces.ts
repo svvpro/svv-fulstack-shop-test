@@ -1,4 +1,4 @@
-export  interface User {
+export interface User {
   email: string;
   password: string;
 }
@@ -16,7 +16,7 @@ export interface Position {
   category: string;
   quantity?: number;
   user?: string;
-  _id? :string;
+  _id?: string;
 }
 
 export interface Order {
@@ -51,6 +51,18 @@ export interface OverviewPageItem {
   yesterday: number;
   isHire: boolean;
 }
+
+export interface AnalyticPage {
+  average: number;
+  chart: AnalyticChart[];
+}
+
+export interface AnalyticChart {
+  label: string;
+  gain: number;
+  order: number;
+}
+
 
 export interface Message {
   message: string;

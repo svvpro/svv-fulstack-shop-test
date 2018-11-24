@@ -21,6 +21,7 @@ import { OrderPositionsComponent } from './order-page/order-positions/order-posi
 import { HistoryPageComponent } from './history-page/history-page.component';
 import { HistoryListComponent } from './history-page/history-list/history-list.component';
 import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
+import { AnalyticPageComponent } from './analytic-page/analytic-page.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { HistoryFilterComponent } from './history-page/history-filter/history-fi
     HistoryPageComponent,
     HistoryListComponent,
     HistoryFilterComponent,
+    AnalyticPageComponent,
   ],
   imports: [
     BrowserModule,

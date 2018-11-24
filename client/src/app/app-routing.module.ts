@@ -12,6 +12,7 @@ import {OrderPageComponent} from "./order-page/order-page.component";
 import {OrderCategoriesComponent} from "./order-page/order-categories/order-categories.component";
 import {OrderPositionsComponent} from "./order-page/order-positions/order-positions.component";
 import {HistoryPageComponent} from "./history-page/history-page.component";
+import {AnalyticPageComponent} from "./analytic-page/analytic-page.component";
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children:
       [
         {path: 'overview', component: OverviewPageComponent},
+        {path: 'analytic', component: AnalyticPageComponent},
         {path: 'category', component: CategoryPageComponent},
         {path: 'category/new', component: CategoryFormComponent},
         {path: 'category/:id', component: CategoryFormComponent},
