@@ -18,6 +18,9 @@ import {PositionFormComponent} from "./category-page/category-form/position-form
 import { OrderPageComponent } from './order-page/order-page.component';
 import { OrderCategoriesComponent } from './order-page/order-categories/order-categories.component';
 import { OrderPositionsComponent } from './order-page/order-positions/order-positions.component';
+import { HistoryPageComponent } from './history-page/history-page.component';
+import { HistoryListComponent } from './history-page/history-list/history-list.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { OrderPositionsComponent } from './order-page/order-positions/order-posi
     PositionFormComponent,
     OrderPageComponent,
     OrderCategoriesComponent,
-    OrderPositionsComponent
+    OrderPositionsComponent,
+    HistoryPageComponent,
+    HistoryListComponent,
+    HistoryFilterComponent
   ],
   imports: [
     BrowserModule,

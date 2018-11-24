@@ -1,0 +1,23 @@
+<h4>
+  History
+</h4>
+<button class="btn" (click)="filterVisibleTrigger()">Filter</button>
+<app-history-filter *ngIf="filterVisible" (onFilter)="submitFilter($event)"></app-history-filter>
+
+<div *ngIf="!reloading; else reloadingPreloader">
+  <app-history-list [orders]="orders"></app-history-list>
+  <div class="row">
+    <br>
+    <div class="col s12 center" *ngIf="!loading;else loadingPreloader">
+      <button class="btn" (click)="loadMore()" *ngIf="!canLoad">Load more</button>
+    </div>
+
+    <ng-template #loadingPreloader>
+      <app-preloader></app-preloader>
+    </ng-template>
+
+  </div>
+</div>
+<ng-template #reloadingPreloader>
+  <app-preloader></app-preloader>
+</ng-template>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="input-field col s3">
+    <input type="number" class="validate" [(ngModel)]="order">
+    <label for="Order">Order</label>
+  </div>
+  <div class="input-field col s3">
+    <input type="text" class="validate" #start>
+    <label for="start">Start date</label>
+  </div>
+
+  <div class="input-field col s3">
+    <input type="text" class="validate" #end>
+    <label for="end">End date</label>
+  </div>
+
+  <div class="input-field col s3">
+   <button class="btn" [disabled]="!isValid" (click)="applyFilter()" >Apply filter</button>
+  </div>
+</div>

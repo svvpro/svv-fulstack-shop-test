@@ -11,6 +11,7 @@ import {CategoryFormComponent} from "./category-page/category-form/category-form
 import {OrderPageComponent} from "./order-page/order-page.component";
 import {OrderCategoriesComponent} from "./order-page/order-categories/order-categories.component";
 import {OrderPositionsComponent} from "./order-page/order-positions/order-positions.component";
+import {HistoryPageComponent} from "./history-page/history-page.component";
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
               {path: '', component: OrderCategoriesComponent},
               {path: ':id', component: OrderPositionsComponent}
             ]
-        }
+        },
+        {path: 'history', component: HistoryPageComponent}
       ]
   }
 ];

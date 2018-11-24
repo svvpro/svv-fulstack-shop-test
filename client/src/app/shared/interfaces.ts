@@ -34,6 +34,12 @@ export interface OrderPosition {
   _id?: string;
 }
 
+export interface Filter {
+  order?: number;
+  start?: Date;
+  end?: Date;
+}
+
 export interface Message {
   message: string;
 }
