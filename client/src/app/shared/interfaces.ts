@@ -40,6 +40,18 @@ export interface Filter {
   end?: Date;
 }
 
+export interface OverviewPage {
+  gain: OverviewPageItem;
+  orders: OverviewPageItem;
+}
+
+export interface OverviewPageItem {
+  percent: number;
+  compare: number;
+  yesterday: number;
+  isHire: boolean;
+}
+
 export interface Message {
   message: string;
 }

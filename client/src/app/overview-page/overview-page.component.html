@@ -1,3 +1,30 @@
 <h4>
   Overview page
 </h4>
+
+<div class="row" *ngIf="data$ | async as data; else preloader">
+  <div class="col s5 card ">
+    <h4>Gain</h4>
+    <div [ngClass]="{green: data.gain.isHire, red: !data.gain.isHire}">
+      <p><strong>Total: </strong>{{data.gain.yesterday}} UAH</p>
+      <i class="material-icons">{{data.gain.isHire ? 'arrow_upward' : 'arrow_downward'}}</i> {{data.gain.percent}} %
+      <p>
+        Yesterday gain by {{data.gain.percent}}% is {{ data.gain.isHire ? 'higher': 'lower'}} than the average {{data.gain.compare}} per day.
+      </p>
+    </div>
+  </div>
+  <div class="col s5 card">
+    <h4>Orders</h4>
+    <div [ngClass]="{green: data.orders.isHire, red: !data.orders.isHire}">
+      <p><strong>Total: </strong>{{data.orders.yesterday}} </p>
+      <i class="material-icons">{{data.orders.isHire ? 'arrow_upward' : 'arrow_downward'}}</i> {{data.orders.percent}} %
+      <p>
+        Yesterday orders by {{data.orders.percent}}% is {{ data.orders.isHire ? 'higher': 'lower'}} than the average {{data.orders.compare}} per day.
+      </p>
+    </div>
+  </div>
+</div>
+
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>

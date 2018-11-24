@@ -22,7 +22,6 @@ import { HistoryPageComponent } from './history-page/history-page.component';
 import { HistoryListComponent } from './history-page/history-list/history-list.component';
 import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +39,7 @@ import { HistoryFilterComponent } from './history-page/history-filter/history-fi
     OrderPositionsComponent,
     HistoryPageComponent,
     HistoryListComponent,
-    HistoryFilterComponent
+    HistoryFilterComponent,
   ],
   imports: [
     BrowserModule,
